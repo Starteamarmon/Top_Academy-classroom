@@ -35,9 +35,6 @@ class Office:
             elif i in empl:
                 print(empl)
                 self._employees[count] = input('введите данные сотрудника с изменениями: ')
-            elif i in empl:
-                print(empl)
-                self._employees[count] = input('введите данные сотрудника с изменениями: ')
             count += 1
 
 
@@ -60,6 +57,7 @@ class Office:
     def load(self,ofcArr:list) -> list:
         for empl in self._employees:
             ofcArr.append(empl)
+        return list(ofcArr)
     
 
 class Empl:
@@ -75,9 +73,6 @@ ofcArr = []
 ofcTxt = Office([])
 ofcTxt.app_employees(Empl("Березовскйи Александр Васильевич", 28))
 ofcArr: list = ofcTxt.load(ofcArr)
-for i in list(ofcArr):
-    print(i)
-
-# '\n'.join(ofcArr)
-# with open("lesson4_oop3/home_work/input.txt", 'w', encoding='utf-8') as f:
-#     f.write(ofcArr)
+ofcArr = ('\n').join(ofcArr)
+with open("lesson4_oop3/home_work/input.txt", 'w', encoding='utf-8') as f:
+    f.write(ofcArr)
