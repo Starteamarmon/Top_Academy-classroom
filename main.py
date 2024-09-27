@@ -14,6 +14,3 @@
 #     f.write(text)
 
 
-
-
-
