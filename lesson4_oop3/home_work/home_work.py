@@ -1,5 +1,13 @@
+
+
+
+
+
+
+a = input('укажите путь к файлу с сотрудниками: ')
+
 ofcTxt: str = ''
-with open("lesson4_oop3/home_work/input.txt", encoding='utf-8') as f:
+with open(a, encoding='utf-8') as f:
     ofcTxt = f.read()
 
 
@@ -68,11 +76,52 @@ class Empl:
     
     def __str__(self):
         return f"{self._name}, {self._age}"
-
-ofcArr = []
+    
 ofcTxt = Office([])
-ofcTxt.app_employees(Empl("Березовскйи Александр Васильевич", 28))
+ofcArr = []
+# ofcArr: list = ofcTxt.load(ofcArr)
+# ofcArr = ('\n').join(ofcArr)
+
+
+print('Здраствуйте, это система "Сотрудники"!')
+print('Тут вы можете:')
+print('1 добавить сотрудника')
+print('2 редактировать сотрудника')
+print('3 удалить сотрудника')
+print('4 найти сотрудника по имени, фамилии, отчеству, возрасу или первой букве фамилии')
+print('5 показать всех сотрудников')
+print('6 Сохранить и выйти')
+
+
+
+menu = input("введите номер пункта меню: ")
+while menu != '6':
+    menf = []
+    if menu == "1":
+        ofcTxt.app_employees(Empl(input("Введите ФИО сотрдника: "),int(input("Введите возраст: "))))
+        print('Сотрудник добавлен!')
+        menu = input("введите номер пункта меню: ")
+    elif menu == "2":
+        ofcTxt.editEmpl(input('Какого сотрудника редактировать?: '))
+        menu = input("введите номер пункта меню: ")
+    elif menu == "3":
+        ofcTxt.deleteEmpl(input('Какого сотрудника удалить?: '))
+        menu = input("введите номер пункта меню: ")
+    elif menu == '4':
+        ofcTxt.search(input('Введите имя,фамилию,отчество первую букву фамилии или возраст: '))
+        menu = input("введите номер пункта меню: ")
+    elif menu == '5':
+        menf: list = ofcTxt.load(menf)
+        menf = ('\n').join(menf)
+        print(("\n"),menf, ('\n'))
+        menu = input("введите номер пункта меню: ")
+    else:
+        print('Ты чё дурак?!')
+        menu = input("введите номер пункта меню: ")
+
 ofcArr: list = ofcTxt.load(ofcArr)
 ofcArr = ('\n').join(ofcArr)
-with open("lesson4_oop3/home_work/input.txt", 'w', encoding='utf-8') as f:
-    f.write(ofcArr)
+print('идёт запись!')
+with open(a, 'w', encoding='utf-8') as f:
+        f.write(ofcArr)
+print("Досвидания!:)")
