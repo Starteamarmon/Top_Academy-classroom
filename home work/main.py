@@ -94,14 +94,30 @@
 # строки.
 
 
-fail: str = ''
+# fail: str = ''
 
+# with open('home work/input.txt', encoding='utf-8') as f:
+#     fail = f.read()
+
+# fail_arr = fail.split('\n')
+# max_len = 0
+# for i in fail_arr:
+#     if len(i) > max_len:
+#         max_len = len(i)
+# print(max_len)
+
+
+# Задание 5
+# Дан текстовый файл. Посчитать сколько раз в нем
+# встречается заданное пользователем слово.
+
+file: str = ''
 with open('home work/input.txt', encoding='utf-8') as f:
-    fail = f.read()
-
-fail_arr = fail.split('\n')
-max_len = 0
-for i in fail_arr:
-    if len(i) > max_len:
-        max_len = len(i)
-print(max_len)
+    file = f.read()
+file = file.split()
+search = input("какой слово искать?: ")
+count = 0
+for i in file:
+    if i.upper() == search.upper():
+        count += 1
+print(f'слово {search}, встречается в тексте {count} раз')
