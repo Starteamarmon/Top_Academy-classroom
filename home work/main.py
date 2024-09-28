@@ -75,14 +75,33 @@
 # строку. Результат записать в другой файл.
 
 
-fail:str = ''
+# fail:str = ''
 
-with open('home work/input.txt',encoding='utf-8') as f:
+# with open('home work/input.txt',encoding='utf-8') as f:
+#     fail = f.read()
+
+# fail_arr: list = fail.split('\n')
+# fail_arr.remove(fail_arr[-1])
+# print(fail_arr)
+# fail_arr = ('\n').join(fail_arr)
+# with open('home work/output.txt','w',encoding='utf-8') as f:
+#     f.write(fail_arr)
+
+
+
+# Задание 4
+# Дан текстовый файл. Найти длину самой длинной
+# строки.
+
+
+fail: str = ''
+
+with open('home work/input.txt', encoding='utf-8') as f:
     fail = f.read()
 
-fail_arr: list = fail.split('\n')
-fail_arr.remove(fail_arr[-1])
-print(fail_arr)
-fail_arr = ('\n').join(fail_arr)
-with open('home work/output.txt','w',encoding='utf-8') as f:
-    f.write(fail_arr)
+fail_arr = fail.split('\n')
+max_len = 0
+for i in fail_arr:
+    if len(i) > max_len:
+        max_len = len(i)
+print(max_len)
