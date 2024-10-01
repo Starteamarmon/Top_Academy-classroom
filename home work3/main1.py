@@ -57,34 +57,59 @@
 # для работы методы
 
 
-class Ship:
-    def __init__(self,displacement: int):
-        self._displacement: int = displacement
+# class Ship:
+#     def __init__(self,displacement: int):
+#         self._displacement: int = displacement
 
-class Cruiser(Ship):
-    def __init__(self, displacement: int, armor_thickness: int):
-        super().__init__(displacement)
-        self._armor_thickness: int = armor_thickness
-    def __str__(self):
-        return f'Водоизмещение ровняется {self._displacement} тысяч тонн, а толщина брони составляет {self._armor_thickness} мм'
+# class Cruiser(Ship):
+#     def __init__(self, displacement: int, armor_thickness: int):
+#         super().__init__(displacement)
+#         self._armor_thickness: int = armor_thickness
+#     def __str__(self):
+#         return f'Водоизмещение ровняется {self._displacement} тысяч тонн, а толщина брони составляет {self._armor_thickness} мм'
 
-class Destroyer(Ship):
-    def __init__(self, displacement: int, damage_range: int):
-        super().__init__(displacement)
-        self._damage_range: int = damage_range
-    def __str__(self):
-        return f'Водоизмещение состовляетет {self._displacement} тысяч тонн, а дальность поражения {self._damage_range} морских миль'
+# class Destroyer(Ship):
+#     def __init__(self, displacement: int, damage_range: int):
+#         super().__init__(displacement)
+#         self._damage_range: int = damage_range
+#     def __str__(self):
+#         return f'Водоизмещение состовляетет {self._displacement} тысяч тонн, а дальность поражения {self._damage_range} морских миль'
 
-class Frigate(Ship):
-    def __init__(self, displacement: int, speed: int):
-        super().__init__(displacement)
-        self._speed: int = speed
+# class Frigate(Ship):
+#     def __init__(self, displacement: int, speed: int):
+#         super().__init__(displacement)
+#         self._speed: int = speed
     
+#     def __str__(self):
+#         return f'Водоизмещение {self._displacement} тысяч тонн, а скорость {self._speed} узлов'
+
+
+# stormy = Cruiser(11,127)
+# print(stormy)
+# daring = Destroyer(9,600)
+# print(daring)
+
+
+
+
+# Задание 3
+# Запрограммируйте класс Money (объект класса оперирует одной валютой) для работы с деньгами.
+# В классе должны быть предусмотрены поле для хранения целой части денег (доллары, евро, гривны и т.д.) и
+# поле для хранения копеек (центы, евроценты, копейки
+# и т.д.).
+# Реализовать методы для вывода суммы на экран, задания значений для частей. 
+
+
+class Money:
+    def __init__(self, deutsche_mark: int, pfennig: int):
+        self._deutsche_mark: int = deutsche_mark
+        self._pfennig: int = pfennig
+        
+
     def __str__(self):
-        return f'Водоизмещение {self._displacement} тысяч тонн, а скорость {self._speed} узлов'
-
-
-stormy = Cruiser(11,127)
-print(stormy)
-daring = Destroyer(9,600)
-print(daring)
+        while self._pfennig > 100:
+            self._pfennig -= 100
+            self._deutsche_mark += 1
+        return f'{self._deutsche_mark} дойчмарок и {self._pfennig} пфенингов'
+    
+print(Money(10,427))
