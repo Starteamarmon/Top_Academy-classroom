@@ -25,6 +25,7 @@
 
 
 
+
 # Задание 2
 # Создайте класс для конвертирования температуры из
 # Цельсия в Фаренгейт и наоборот. У класса должно быть
@@ -35,30 +36,53 @@
 
 
 
-class Сonverter:
-    count = 0
+# class Сonverter:
+#     count = 0
     
-    def __init__(self,num: int):
-        self._num: int = num
+#     def __init__(self,num: int):
+#         self._num: int = num
 
-    def __str__(self) -> str:
-        return f'{self._num}'
+#     def __str__(self) -> str:
+#         return f'{self._num}'
+    
+#     @staticmethod
+#     def cel_in_far(num:int) -> int:
+#         Сonverter.count += 1
+#         return (num) * 1.8 + 32
+    
+#     @staticmethod
+#     def far_in_cel(num:int) -> int:
+#         Сonverter.count += 1
+#         return (num - 32) / 1.8
+
+#     @staticmethod
+#     def countConv():
+#         return f'{Сonverter.count}'
+
+
+# print(Сonverter.cel_in_far(10))
+# print(Сonverter.far_in_cel(50))
+# print(Сonverter.countConv())
+
+
+
+
+
+
+# Задание 3
+# Создайте класс для перевода из метрической системы
+# в английскую и наоборот. Функциональность необходимо
+# реализовать в виде статических методов. Обязательно
+# реализуйте перевод мер длины.
+
+class Converter:
+    @staticmethod
+    def metr_in_foot(num:int):
+        return num * 3.2808
     
     @staticmethod
-    def cel_in_far(num:int) -> int:
-        Сonverter.count += 1
-        return (num) * 1.8 + 32
+    def foot_in_metr(num:int):
+        return num / 3.2808
     
-    @staticmethod
-    def far_in_cel(num:int) -> int:
-        Сonverter.count += 1
-        return (num - 32) / 1.8
-
-    @staticmethod
-    def countConv():
-        return f'{Сonverter.count}'
-
-
-print(Сonverter.cel_in_far(10))
-print(Сonverter.far_in_cel(50))
-print(Сonverter.countConv())
+print(Converter.metr_in_foot(7))
+print(Converter.foot_in_metr(1))
