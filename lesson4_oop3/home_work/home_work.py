@@ -89,8 +89,6 @@ class Empl:
     
 ofcTxt = Office([])
 ofcArr = []
-# ofcArr: list = ofcTxt.load(ofcArr)
-# ofcArr = ('\n').join(ofcArr)
 
 
 print('Здраствуйте, это система "Сотрудники"!')
