@@ -14,9 +14,41 @@ def rtrn0_100(zero: int, one_hundred: int):
     end = time.time() - start
     print(f'на вычисление простых чисел ушло {end} секунд')
 
-rtrn0_100(0,100090)
+rtrn0_100(0,100)
 
 
 # Задание 2
 # Добавьте к первому заданию возможность передавать
 # границы диапазона для поиска всех простых чисел.
+
+
+# Задание 3
+# Каждый год ваша компания предоставляет различным
+# государственным организациям финансовую отчетность.
+# В зависимости от организации форматы отчетности разные.
+# Используя механизм декораторов, решите вопрос
+# отчетности для организаций.
+
+class Organization:
+    def __init__(self,report:str):
+        self._report: str = report
+    
+    def txt(self):
+        txt: str = '.txt'
+        result = self._report+txt
+        return result
+    
+    def doc(self):
+        doc: str = '.doc'
+        result = self._report+doc
+        return result
+    
+    def pdf(self):
+        pdf: str = '.pdf'
+        result = self._report+pdf
+        return result
+    
+a = Organization('Отчёт за май')
+print(a.txt())
+print(a.doc())
+print(a.pdf())
