@@ -197,10 +197,7 @@ class StoparikString:
             print('Стек не пуст.')
 
     def full(self):
-        if len(self._arr) < 10:
-            print('Стек не полон.')
-        else:
-            print('Стек полон.')
+            print('стек всегда на половину полон...\n                                         или пуст...')
         
     def clean(self):
         while len(self._arr) != 0:
@@ -227,10 +224,7 @@ menu = input('Введите пункт меню: ')
 while menu != '8':
     if menu == '1':
         string = input('Введите строку: ')
-        if a.len() < 10:
-            a.app(string)
-        else:
-            print('в стеке не может быть больше 10 строк')
+        a.app(string)
         menu = input('Введите пункт меню: ')
     elif menu == '2':
         if a.len() > 0:
