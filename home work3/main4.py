@@ -154,3 +154,105 @@ while menu != '6':
     else:
         print(f'ты чё дурак?! смотри в пунты меню какая к чёрту {menu}?!')
         menu = input('\nВыберете пункт меню: ')
+
+
+
+# Задание 2
+# Реализуйте класс стека для работы со строками (стек
+# строк).
+# Стек должен иметь фиксированный размер.
+# Реализуйте набор операций для работы со стеком:
+# ■ помещение строки в стек;
+# ■ выталкивание строки из стека;
+# ■ подсчет количества строк в стеке;
+# ■ проверку пустой ли стек;
+# ■ проверку полный ли стек;
+# ■ очистку стека;
+# ■ получение значения без выталкивания верхней строки из стека.
+# При старте приложения нужно отобразить меню с
+# помощью, которого пользователь может выбрать необходимую операцию.
+
+
+class StoparikString:
+    def __init__(self,arr: list):
+        self._arr: list = arr
+    
+    def __str__(self):
+        return f'{self._arr}'
+
+    def app(self,strint):
+        self._arr.append(strint)
+    
+    def push_out(self):
+        print(f'Вытолкнута строка: {self._arr[-1]}')
+        self._arr.remove(self._arr[-1])
+    
+    def counter(self):
+        print(f'Строк в стеке: {len(self._arr)}')
+
+    def empty(self):
+        if len(self._arr) == 0:
+            print('Стек пуст.')
+        else:
+            print('Стек не пуст.')
+
+    def full(self):
+        if len(self._arr) < 10:
+            print('Стек не полон.')
+        else:
+            print('Стек полон.')
+        
+    def clean(self):
+        while len(self._arr) != 0:
+            self._arr.remove(self._arr[-1])
+
+    def last(self):
+        print(f'Крайняя строка: {self._arr[-1]}')
+
+    def len(self):
+        return len(self._arr)
+
+
+print('1. Помещение строки в стек.')
+print('2. Выталкивание строки из стека.')
+print('3. Подсчет количества строк в стеке.')
+print('4. Проверка пустой ли стек.')
+print('5. Проверка полный ли стек.')
+print('6. Очистка стека.')
+print('7. Получение последнего значения.')
+print('8. Выход.')
+
+a = StoparikString([])
+menu = input('Введите пункт меню: ')
+while menu != '8':
+    if menu == '1':
+        string = input('Введите строку: ')
+        if a.len() < 10:
+            a.app(string)
+        else:
+            print('в стеке не может быть больше 10 строк')
+        menu = input('Введите пункт меню: ')
+    elif menu == '2':
+        if a.len() > 0:
+            a.push_out()
+        else:
+            print('нечего выталкивать...')
+        menu = input('Введите пункт меню: ')
+    elif menu == '3':
+        print(a.counter())
+        menu = input('Введите пункт меню: ')
+    elif menu == '4':
+        a.empty()
+        menu = input('Введите пункт меню: ')
+    elif menu == '5':
+        a.full()
+        menu = input('Введите пункт меню: ')
+    elif menu == '6':
+        a.clean()
+        menu = input('Введите пункт меню: ')
+    elif menu == '7':
+        a.last()
+        menu = input('Введите пункт меню: ')
+    else:
+        print('Такого пункта нет.')
+        menu = input('Введите пункт меню: ')
