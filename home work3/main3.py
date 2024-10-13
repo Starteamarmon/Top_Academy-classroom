@@ -7,14 +7,23 @@
 
 import time
 
-def rtrn0_100(zero: int, one_hundred: int):
-    start = time.time()
-    for i in range(zero+1,one_hundred+1):
-        print(i)
-    end = time.time() - start
-    print(f'на вычисление простых чисел ушло {end} секунд')
+def timExit(func):
+    def wraperMaybe(n):
+        start = time.time()
+        result = func(n)
+        end = time.time() - start
+        print(f'на вычисление простых чисел ушло {end} секунд')
+        return result
+    return wraperMaybe
 
-rtrn0_100(0,100)
+@timExit
+def rZt(n):
+    for i in range(0,n+1):
+        print (i)
+
+a = rZt(1000)
+
+
 
 
 # Задание 2
@@ -37,18 +46,7 @@ class Organization:
         txt: str = '.txt'
         result = self._report+txt
         return result
-    
-    def doc(self):
-        doc: str = '.doc'
-        result = self._report+doc
-        return result
-    
-    def pdf(self):
-        pdf: str = '.pdf'
-        result = self._report+pdf
-        return result
+
     
 a = Organization('Отчёт за май')
 print(a.txt())
-print(a.doc())
-print(a.pdf())
