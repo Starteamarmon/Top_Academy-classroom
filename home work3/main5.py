@@ -75,3 +75,48 @@ car.brake(30)
 print(car)
 car.brake(200)
 print(car)
+
+
+from abc import abstractmethod
+
+# Задача 7: Абстрактные классы
+
+# Описание: Создайте абстрактный класс Shape, который имеет абстрактный метод get_area().
+#  Затем создайте классы Square и Triangle, которые наследуются от этого абстрактного класса
+#  и реализуют свои версии метода get_area().
+
+# Условия:
+
+#  • Класс Square должен принимать длину стороны, а класс Triangle — основание и высоту.
+#  • Метод get_area() должен возвращать площадь фигуры.
+
+# Каждая из этих задач поможет вам лучше понять принципы ООП, такие как инкапсуляция, наследование,
+#  полиморфизм и абстракция.
+
+class Shape:
+
+    @abstractmethod
+    def get_area():
+        raise f'нид мейк фанкшн'
+    
+class Square(Shape):
+    def __init__(self,len_side):
+        self._len_side: int = len_side
+
+    def get_area(self):
+        return self._len_side ** 2
+    
+    def __str__(self):
+        return f'{self._len_side}'
+    
+class Triangle(Shape):
+    def __init__(self,height,base):
+        self._height: int = height
+        self._base: int = base
+
+    def get_area(self):
+        return (self._height * self._base)/2
+    
+s = Square(4)
+t = Triangle(3,2)
+print(t.get_area(),s.get_area())
